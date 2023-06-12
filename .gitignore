@@ -128,3 +128,30 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+
+# gitignore rules
+
+.env
+*.sw*
+node_modules
+build
+releases
+ecosystem.config.js
+deploy_history.txt
+
+# for all the vim gods
+*.sw*
+
+# for all the vscode mortals
+/.vscode
+*.code-workspace
+/logs
+
+# for the Mac plebeians
+.DS_Store
+
+# for the test squad
+coverage
+
+.VSCodeCounter/

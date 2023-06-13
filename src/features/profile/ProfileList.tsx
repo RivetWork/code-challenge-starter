@@ -1,15 +1,29 @@
 import { Box, Divider, Stack } from "@mui/material";
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { ProfileLineItem } from "./ProfileLineItem";
-import { profileList } from "./profileSlice";
+import { profileList, setActiveProfile } from "./profileSlice";
+import { Profile } from "./profileUtils";
 
 const ProfileList = () => {
   const profiles = useSelector(profileList)
-  console.log('posts?', profiles);
+  const dispatch = useDispatch();
+
+  function trySetProfile(data: number) {
+    dispatch(setActiveProfile(data));
+    alert(`Should view profile id: ${data}`)
+  }
+
   return (
-    <Stack divider={<Divider/>}>
-      { profiles && profiles.map((profile)=>(
-        <Box sx={{padding: '.5em'}} key={profile.email}>
+    <Stack spacing={1} sx={{textAlign: 'left'}}>
+      { profiles.length > 0 && profiles.map((profile)=>(
+        <Box sx={{ backgroundColor: 'white', 
+                   borderRadius: '4px', 
+                   overflow: 'hidden', 
+                   boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, .1)',
+                   cursor: 'pointer'
+                  }} 
+             key={profile.id} 
+             onClick={()=>trySetProfile(profile.id)}>
           <ProfileLineItem profile={profile} />
         </Box>
       ))}

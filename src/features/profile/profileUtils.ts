@@ -1,6 +1,7 @@
 import fakeUsers from './fakeUsers.json';
 
 type Profile = {
+    "id": number,
     "first_name": string, // 255 char max / required",
     "last_name": string, // 255 char max / required",
     "phone": string, // 255 char max / required",
@@ -15,7 +16,7 @@ type Profile = {
 
 type ProfileState = {
   profiles: Profile[];
-  inFocus: string;
+  inFocus: Profile | null;
 }
 
 const makeFakeUserList = ():Profile[] => {
@@ -24,6 +25,7 @@ const makeFakeUserList = ():Profile[] => {
     const first_name = names.shift() as string;
     const last_name = names.join(' ');
     const profileFromUser:Profile = {
+      id: user.id,
       first_name,
       last_name,
       phone: user.phone,

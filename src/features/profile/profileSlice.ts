@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { Profile, ProfileState, makeFakeUserList } from './profileUtils'
+import { ProfileState, makeFakeUserList } from './profileUtils'
 import { RootState } from '../../store';
-import { isArray, isNull } from 'lodash'
+import { isArray } from 'lodash'
 
 const initialState = {
   profiles: [],

@@ -1,7 +1,7 @@
 
 const ProfileShow = () => {
   return (
-    <div>Hi this Mom</div>
+    <div>Profile show goes here :)</div>
   )
 }
 

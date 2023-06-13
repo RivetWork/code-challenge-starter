@@ -1,8 +1,7 @@
-import { Box, Divider, Stack } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux"
 import { ProfileLineItem } from "./ProfileLineItem";
 import { profileList, setActiveProfile } from "./profileSlice";
-import { Profile } from "./profileUtils";
 
 const ProfileList = () => {
   const profiles = useSelector(profileList)
